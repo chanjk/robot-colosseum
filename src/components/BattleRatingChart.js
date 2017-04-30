@@ -1,4 +1,5 @@
 import React from 'react';
+import { List, ListItem } from 'material-ui/List';
 import { HorizontalBar } from 'react-chartjs-2';
 
 const BattleRatingChart = ({ ratings }) => {
@@ -28,7 +29,11 @@ const BattleRatingChart = ({ ratings }) => {
     legend: { display: false }
   }
 
-  return <HorizontalBar data={data} options={options} />;
+  return <List>
+    <ListItem>
+      <HorizontalBar data={data} options={options} />
+    </ListItem>
+  </List>;
 };
 
 export default BattleRatingChart;
