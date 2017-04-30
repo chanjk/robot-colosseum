@@ -5,9 +5,9 @@ import StatRow from './StatRow';
 const StatBox = ({ stats }) => (
   <List>
     {stats.map(stat => (
-      <ListItem
-        key={stat.name}
-        children={<StatRow key={stat.name} name={stat.name} value={stat.value} />} />
+      <ListItem key={stat.name}>
+        <StatRow key={stat.name} name={stat.name} value={stat.value} />
+      </ListItem>
     ))}
   </List>
 );

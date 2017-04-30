@@ -4,6 +4,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import PlayerSummaryCard from './PlayerSummaryCard';
 import StatBox from './StatBox';
 import EquipmentBox from './EquipmentBox';
+import UpgradeBox from './UpgradeBox';
 
 const styles = {
   root: {
@@ -12,7 +13,7 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 500,
+    width: 800,
     height: 450
   },
   gridTile: {
@@ -21,6 +22,7 @@ const styles = {
 };
 
 var stats = ['Attack', 'Defence', 'Accuracy', 'Speed', 'Luck'].map(name => ({ name: name, value: 15 }));
+
 var equipment = [
   {
     type: 'Head',
@@ -44,6 +46,29 @@ var equipment = [
   }
 ];
 
+var upgrades = [
+  {
+    type: 'Head',
+    name: 'None'
+  },
+  {
+    type: 'Left Arm',
+    name: 'Double Shot'
+  },
+  {
+    type: 'Right Arm',
+    name: 'Energy Buster'
+  },
+  {
+    type: 'Body',
+    name: 'None'
+  },
+  {
+    type: 'Feet',
+    name: 'Wind Dash'
+  }
+];
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -51,7 +76,7 @@ export default class App extends React.Component {
 
   render() {
     return <MuiThemeProvider>
-      <GridList cellHeight={450} style={styles.gridList}>
+      <GridList cellHeight={450} cols={3} style={styles.gridList}>
         <GridTile style={styles.gridTile}>
           <PlayerSummaryCard name="Zero" role="Maverick Hunter" imageUrl="https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg" />
         </GridTile>
@@ -60,6 +85,9 @@ export default class App extends React.Component {
         </GridTile>
         <GridTile style={styles.gridTile}>
           <EquipmentBox equipment={equipment} />
+        </GridTile>
+        <GridTile style={styles.gridTile}>
+          <UpgradeBox upgrades={upgrades} />
         </GridTile>
       </GridList>
     </MuiThemeProvider>;
