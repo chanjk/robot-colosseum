@@ -9,6 +9,7 @@ import UpgradeBox from './UpgradeBox';
 import BattleRatingChart from './BattleRatingChart';
 import FightMenu from './FightMenu';
 import statsHelper from '../lib/statsHelper';
+import ratingsHelper from '../lib/ratingsHelper';
 
 const styles = {
   root: {
@@ -48,7 +49,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { player, stats, equipment, upgrades, ratings } = this.state;
+    const { player, stats, equipment, upgrades } = this.state;
 
     return <MuiThemeProvider>
       <GridList cellHeight={350} cols={3} padding={10} style={styles.gridList}>
@@ -65,7 +66,7 @@ export default class App extends React.Component {
           <UpgradeBox upgrades={upgrades} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <BattleRatingChart ratings={ratings} />
+          <BattleRatingChart ratings={ratingsHelper.calcRatings(stats)} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <FightMenu />

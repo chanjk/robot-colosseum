@@ -51,21 +51,6 @@ const mockData = {
       type: 'Feet',
       name: 'Wind Dash'
     }
-  ],
-
-  ratings: [
-    {
-      name: 'Attack',
-      value: 100
-    },
-    {
-      name: 'Defence',
-      value: 80
-    },
-    {
-      name: 'Speed',
-      value: 120
-    }
   ]
 }
 
