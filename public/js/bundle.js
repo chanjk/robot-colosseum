@@ -28950,7 +28950,21 @@ var PlayerSummaryCard = function PlayerSummaryCard(_ref) {
       null,
       _react2.default.createElement('img', { src: imageUrl })
     ),
-    _react2.default.createElement(_Card.CardTitle, { title: name, subtitle: role })
+    _react2.default.createElement(_Card.CardTitle, { title: name, subtitle: role }),
+    _react2.default.createElement(
+      _Card.CardText,
+      null,
+      _react2.default.createElement(
+        'div',
+        null,
+        'Metals: 2000'
+      ),
+      _react2.default.createElement(
+        'div',
+        null,
+        'Wins: 20'
+      )
+    )
   );
 };
 
