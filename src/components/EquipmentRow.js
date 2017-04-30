@@ -1,18 +1,28 @@
 import React from 'react';
-import Paper from 'material-ui/Paper';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
 
 const style = {
-  paper: {
+  type: {
     display: 'inline-block',
-    padding: '.5em',
-    marginRight: '.5em'
+    width: '6em',
+    verticalAlign: 'middle'
+  },
+  select: {
+    display: 'inline-block',
+    verticalAlign: 'middle',
+    width: 'auto',
+    padding: 0,
+    margin: -8
   }
 }
 
 const EquipmentRow = ({ type, name }) => (
   <div>
-    <Paper style={style.paper}>{type}</Paper>
-    <Paper style={style.paper}>{name}</Paper>
+    <span style={style.type}>{type}</span>
+    <SelectField style={style.select} value={1}>
+      <MenuItem value={1} primaryText={name} />
+    </SelectField>
   </div>
 );
 

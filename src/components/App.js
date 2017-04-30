@@ -20,7 +20,8 @@ const styles = {
     width: '100%'
   },
   gridTile: {
-    border: '1px solid black'
+    border: '1px solid black',
+    overflowY: 'auto'
   }
 };
 
