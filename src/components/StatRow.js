@@ -18,7 +18,7 @@ const style = {
   }
 }
 
-const StatInput = ({ name, value }) => (
+const StatRow = ({ name, value }) => (
   <div>
     <Paper style={style.paper}>{name}</Paper>
     <Paper style={style.paper}>{value}</Paper>
@@ -31,4 +31,4 @@ const StatInput = ({ name, value }) => (
   </div>
 );
 
-export default StatInput;
+export default StatRow;

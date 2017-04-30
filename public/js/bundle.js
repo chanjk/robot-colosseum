@@ -13077,9 +13077,9 @@ var _react2 = _interopRequireDefault(_react);
 
 var _List = __webpack_require__(280);
 
-var _StatInput = __webpack_require__(169);
+var _StatRow = __webpack_require__(169);
 
-var _StatInput2 = _interopRequireDefault(_StatInput);
+var _StatRow2 = _interopRequireDefault(_StatRow);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13091,7 +13091,7 @@ var StatBox = function StatBox(_ref) {
     stats.map(function (stat) {
       return _react2.default.createElement(_List.ListItem, {
         key: stat.name,
-        children: _react2.default.createElement(_StatInput2.default, { key: stat.name, name: stat.name, value: stat.value }) });
+        children: _react2.default.createElement(_StatRow2.default, { key: stat.name, name: stat.name, value: stat.value }) });
     })
   );
 };
@@ -13145,7 +13145,7 @@ var style = {
   }
 };
 
-var StatInput = function StatInput(_ref) {
+var StatRow = function StatRow(_ref) {
   var name = _ref.name,
       value = _ref.value;
   return _react2.default.createElement(
@@ -13174,7 +13174,7 @@ var StatInput = function StatInput(_ref) {
   );
 };
 
-exports.default = StatInput;
+exports.default = StatRow;
 
 /***/ }),
 /* 170 */
