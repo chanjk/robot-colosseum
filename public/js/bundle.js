@@ -28635,7 +28635,7 @@ var styles = {
   }
 };
 
-var stats = ['Attack', 'Defence', 'Accuracy', 'Speed', 'Luck'].map(function (name) {
+var stats = ['Power', 'Armor', 'Accuracy', 'Agility', 'Luck'].map(function (name) {
   return { name: name, value: 15 };
 });
 

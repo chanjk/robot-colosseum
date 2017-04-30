@@ -23,7 +23,7 @@ const styles = {
   }
 };
 
-var stats = ['Attack', 'Defence', 'Accuracy', 'Speed', 'Luck'].map(name => ({ name: name, value: 15 }));
+var stats = ['Power', 'Armor', 'Accuracy', 'Agility', 'Luck'].map(name => ({ name: name, value: 15 }));
 
 var equipment = [
   {
