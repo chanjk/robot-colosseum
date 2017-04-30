@@ -5,6 +5,7 @@ import PlayerSummaryCard from './PlayerSummaryCard';
 import StatBox from './StatBox';
 import EquipmentBox from './EquipmentBox';
 import UpgradeBox from './UpgradeBox';
+import BattleRatingChart from './BattleRatingChart';
 
 const styles = {
   root: {
@@ -69,6 +70,21 @@ var upgrades = [
   }
 ];
 
+var ratings = [
+  {
+    name: 'Attack',
+    value: 100
+  },
+  {
+    name: 'Defence',
+    value: 80
+  },
+  {
+    name: 'Speed',
+    value: 120
+  }
+];
+
 export default class App extends React.Component {
   constructor(props) {
     super(props)
@@ -88,6 +104,9 @@ export default class App extends React.Component {
         </GridTile>
         <GridTile style={styles.gridTile}>
           <UpgradeBox upgrades={upgrades} />
+        </GridTile>
+        <GridTile style={styles.gridTile}>
+          <BattleRatingChart ratings={ratings} />
         </GridTile>
       </GridList>
     </MuiThemeProvider>;
