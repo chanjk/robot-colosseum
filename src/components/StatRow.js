@@ -1,33 +1,41 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
+import IconButton from 'material-ui/IconButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import ContentRemove from 'material-ui/svg-icons/content/remove';
 
 const style = {
+  name: {
+    display: 'inline-block',
+    width: '6em'
+  },
   paper: {
     display: 'inline-block',
-    padding: '.5em',
-    marginRight: '.5em'
+    width: '3em',
+    padding: '.5em'
   },
   button: {
-    minWidth: 25,
     verticalAlign: 'middle',
-    lineHeight: 'auto',
-    height: 'auto'
+    padding: 0,
+    width: 30,
+    height: 30
+  },
+  buttonIcon: {
+    width: 18,
+    height: 18
   }
 }
 
 const StatRow = ({ name, value, handleIncrement, handleDecrement }) => (
   <div>
-    <Paper style={style.paper}>{name}</Paper>
+    <span style={style.name}>{name}</span>
     <Paper style={style.paper}>{value}</Paper>
-    <FlatButton style={style.button} onClick={handleIncrement.bind(this, name)}>
+    <IconButton iconStyle={style.buttonIcon} style={style.button} onClick={handleIncrement.bind(this, name)}>
       <ContentAdd />
-    </FlatButton>
-    <FlatButton style={style.button} onClick={handleDecrement.bind(this, name)}>
+    </IconButton>
+    <IconButton iconStyle={style.buttonIcon} style={style.button} onClick={handleDecrement.bind(this, name)}>
       <ContentRemove />
-    </FlatButton>
+    </IconButton>
   </div>
 );
 
