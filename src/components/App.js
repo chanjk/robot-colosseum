@@ -6,6 +6,7 @@ import StatBox from './StatBox';
 import EquipmentBox from './EquipmentBox';
 import UpgradeBox from './UpgradeBox';
 import BattleRatingChart from './BattleRatingChart';
+import FightMenu from './FightMenu';
 
 const styles = {
   root: {
@@ -92,7 +93,7 @@ export default class App extends React.Component {
 
   render() {
     return <MuiThemeProvider>
-      <GridList cellHeight={450} cols={3} style={styles.gridList}>
+      <GridList cellHeight={450} cols={3} padding={10} style={styles.gridList}>
         <GridTile style={styles.gridTile}>
           <PlayerSummaryCard name="Zero" role="Maverick Hunter" imageUrl="https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg" />
         </GridTile>
@@ -107,6 +108,9 @@ export default class App extends React.Component {
         </GridTile>
         <GridTile style={styles.gridTile}>
           <BattleRatingChart ratings={ratings} />
+        </GridTile>
+        <GridTile style={styles.gridTile}>
+          <FightMenu />
         </GridTile>
       </GridList>
     </MuiThemeProvider>;
