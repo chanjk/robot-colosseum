@@ -54,7 +54,7 @@ export default class App extends React.Component {
     return <MuiThemeProvider>
       <GridList cellHeight={350} cols={3} padding={10} style={styles.gridList}>
         <GridTile style={styles.gridTile}>
-          <PlayerSummaryCard name={player.name} role={player.role} imageUrl={player.imageUrl} />
+          <PlayerSummaryCard player={player} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <StatBox stats={stats} handleIncrement={this.handleStatIncrement} handleDecrement={this.handleStatDecrement} />

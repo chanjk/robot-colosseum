@@ -10,17 +10,18 @@ const style = {
   }
 }
 
-const PlayerSummaryCard = ({ name, role, imageUrl }) => (
+const PlayerSummaryCard = ({ player }) => (
   <Card>
     <CardMedia>
       <div style={style.imgWrapper}>
-        <img src={imageUrl} style={style.img}/>
+        <img src={player.imageUrl} style={style.img}/>
       </div>
     </CardMedia>
-    <CardTitle title={name} subtitle={role} />
+    <CardTitle title={player.name} subtitle={player.role} />
     <CardText>
-      <div>Metals: 2000</div>
-      <div>Wins: 20</div>
+      <div>Level: {player.level}</div>
+      <div>Metals: {player.metalCount}</div>
+      <div>Wins: {player.winCount}</div>
     </CardText>
   </Card>
 );
