@@ -22,79 +22,18 @@ const styles = {
   }
 };
 
-var stats = ['Power', 'Armor', 'Accuracy', 'Agility', 'Luck'].map(name => ({ name: name, value: 15 }));
-
-var equipment = [
-  {
-    type: 'Head',
-    name: 'Basic Helmet'
-  },
-  {
-    type: 'Left Arm',
-    name: 'Z-Buster'
-  },
-  {
-    type: 'Right Arm',
-    name: 'Z-Saber'
-  },
-  {
-    type: 'Body',
-    name: 'Basic Armor'
-  },
-  {
-    type: 'Feet',
-    name: 'Dash Boots'
-  }
-];
-
-var upgrades = [
-  {
-    type: 'Head',
-    name: 'None'
-  },
-  {
-    type: 'Left Arm',
-    name: 'Double Shot'
-  },
-  {
-    type: 'Right Arm',
-    name: 'Energy Buster'
-  },
-  {
-    type: 'Body',
-    name: 'None'
-  },
-  {
-    type: 'Feet',
-    name: 'Wind Dash'
-  }
-];
-
-var ratings = [
-  {
-    name: 'Attack',
-    value: 100
-  },
-  {
-    name: 'Defence',
-    value: 80
-  },
-  {
-    name: 'Speed',
-    value: 120
-  }
-];
-
 export default class App extends React.Component {
   constructor(props) {
     super(props)
   }
 
   render() {
+    const { player, stats, equipment, upgrades, ratings } = this.props.data;
+
     return <MuiThemeProvider>
       <GridList cellHeight={350} cols={3} padding={10} style={styles.gridList}>
         <GridTile style={styles.gridTile}>
-          <PlayerSummaryCard name="Zero" role="Maverick Hunter" imageUrl="https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg" />
+          <PlayerSummaryCard name={player.name} role={player.role} imageUrl={player.imageUrl} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <StatBox stats={stats} />
