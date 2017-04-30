@@ -1,4 +1,4 @@
-import { adjust, merge } from 'ramda';
+import { adjust } from 'ramda';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList, GridTile } from 'material-ui/GridList';
@@ -8,8 +8,7 @@ import EquipmentBox from './EquipmentBox';
 import UpgradeBox from './UpgradeBox';
 import BattleRatingChart from './BattleRatingChart';
 import FightMenu from './FightMenu';
-
-// const R = require('ramda');
+import statsHelper from '../lib/statsHelper';
 
 const styles = {
   root: {
@@ -36,23 +35,15 @@ export default class App extends React.Component {
   handleStatIncrement(name) {
     this.setState(prevState => {
       const idx = prevState.stats.findIndex(stat => stat.name === name);
-      return { stats: adjust(this.incrementStat, idx, prevState.stats) }
+      return { stats: adjust(statsHelper.increment, idx, prevState.stats) }
     });
   }
 
   handleStatDecrement(name) {
     this.setState(prevState => {
       const idx = prevState.stats.findIndex(stat => stat.name === name);
-      return { stats: adjust(this.decrementStat, idx, prevState.stats) }
+      return { stats: adjust(statsHelper.decrement, idx, prevState.stats) }
     });
-  }
-
-  incrementStat(stat) {
-    return merge(stat, { value: stat.value + 1 });
-  }
-
-  decrementStat(stat) {
-    return merge(stat, { value: stat.value - 1 });
   }
 
   render() {
