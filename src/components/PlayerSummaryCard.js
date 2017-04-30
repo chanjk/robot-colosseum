@@ -1,5 +1,5 @@
 import React from 'react';
-import {Card, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import { Card, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 
 const style = {
   imgWrapper: {

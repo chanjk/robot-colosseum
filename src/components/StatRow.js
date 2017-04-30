@@ -18,14 +18,14 @@ const style = {
   }
 }
 
-const StatRow = ({ name, value }) => (
+const StatRow = ({ name, value, handleIncrement, handleDecrement }) => (
   <div>
     <Paper style={style.paper}>{name}</Paper>
     <Paper style={style.paper}>{value}</Paper>
-    <FlatButton style={style.button}>
+    <FlatButton style={style.button} onClick={handleIncrement.bind(this, name)}>
       <ContentAdd />
     </FlatButton>
-    <FlatButton style={style.button}>
+    <FlatButton style={style.button} onClick={handleDecrement.bind(this, name)}>
       <ContentRemove />
     </FlatButton>
   </div>

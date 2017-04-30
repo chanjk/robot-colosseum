@@ -1,5 +1,5 @@
 import React from 'react';
-import {List, ListItem} from 'material-ui/List';
+import { List, ListItem } from 'material-ui/List';
 import EquipmentRow from './EquipmentRow';
 
 const EquipmentBox = ({ equipment }) => (
