@@ -28627,8 +28627,7 @@ var styles = {
     justifyContent: 'space-around'
   },
   gridList: {
-    width: 800,
-    height: 450
+    width: '100%'
   },
   gridTile: {
     border: '1px solid black'
@@ -28701,7 +28700,7 @@ var App = function (_React$Component) {
         null,
         _react2.default.createElement(
           _GridList.GridList,
-          { cellHeight: 450, cols: 3, padding: 10, style: styles.gridList },
+          { cellHeight: 350, cols: 3, padding: 10, style: styles.gridList },
           _react2.default.createElement(
             _GridList.GridTile,
             { style: styles.gridTile },
@@ -28938,6 +28937,15 @@ var _Card = __webpack_require__(441);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var style = {
+  imgWrapper: {
+    textAlign: 'center'
+  },
+  img: {
+    height: 150
+  }
+};
+
 var PlayerSummaryCard = function PlayerSummaryCard(_ref) {
   var name = _ref.name,
       role = _ref.role,
@@ -28948,7 +28956,11 @@ var PlayerSummaryCard = function PlayerSummaryCard(_ref) {
     _react2.default.createElement(
       _Card.CardMedia,
       null,
-      _react2.default.createElement('img', { src: imageUrl })
+      _react2.default.createElement(
+        'div',
+        { style: style.imgWrapper },
+        _react2.default.createElement('img', { src: imageUrl, style: style.img })
+      )
     ),
     _react2.default.createElement(_Card.CardTitle, { title: name, subtitle: role }),
     _react2.default.createElement(

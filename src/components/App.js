@@ -15,8 +15,7 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 800,
-    height: 450
+    width: '100%'
   },
   gridTile: {
     border: '1px solid black'
@@ -93,7 +92,7 @@ export default class App extends React.Component {
 
   render() {
     return <MuiThemeProvider>
-      <GridList cellHeight={450} cols={3} padding={10} style={styles.gridList}>
+      <GridList cellHeight={350} cols={3} padding={10} style={styles.gridList}>
         <GridTile style={styles.gridTile}>
           <PlayerSummaryCard name="Zero" role="Maverick Hunter" imageUrl="https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg" />
         </GridTile>
