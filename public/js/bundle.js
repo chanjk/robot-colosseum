@@ -36605,11 +36605,13 @@ Object.defineProperty(exports, "__esModule", {
 var _ramda = __webpack_require__(325);
 
 var MIN_STAT = 5,
-    MAX_STAT = 99;
+    MAX_STAT = 50;
 
-var change = (0, _ramda.curry)(function (amount, stat) {
-  return (0, _ramda.merge)(stat, { value: (0, _ramda.clamp)(MIN_STAT, MAX_STAT, stat.value + amount) });
-});
+var change = function change(amount) {
+  return function (stat) {
+    return (0, _ramda.merge)(stat, { value: (0, _ramda.clamp)(MIN_STAT, MAX_STAT, stat.value + amount) });
+  };
+};
 
 var statsHelper = {
   increment: change(1),
