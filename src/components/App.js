@@ -29,7 +29,7 @@ const styles = {
 
 export default class App extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = this.props.data;
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
