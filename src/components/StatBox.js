@@ -15,7 +15,6 @@ const StatBox = ({ stats, available, handleIncrement, handleDecrement }) => (
     {stats.map(stat => (
       <ListItem key={stat.name}>
         <StatRow
-          key={stat.name}
           name={stat.name}
           value={stat.value}
           handleIncrement={handleIncrement}

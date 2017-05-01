@@ -6,7 +6,7 @@ const UpgradeBox = ({ upgrades }) => (
   <List>
     {upgrades.map(upgrade => (
       <ListItem key={upgrade.type}>
-        <UpgradeRow key={upgrade.type} type={upgrade.type} name={upgrade.name} />
+        <UpgradeRow type={upgrade.type} name={upgrade.name} />
       </ListItem>
     ))}
   </List>
