@@ -1,11 +1,22 @@
-DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS robot_types;
-DROP TABLE IF EXISTS equipment;
+DROP TABLE IF EXISTS players;
 DROP TABLE IF EXISTS equipment_types;
-DROP TABLE IF EXISTS upgrades;
+DROP TABLE IF EXISTS equipment;
 DROP TABLE IF EXISTS upgrade_types;
+DROP TABLE IF EXISTS upgrades;
 DROP TABLE IF EXISTS equipment_inventory;
 DROP TABLE IF EXISTS upgrades_inventory;
+
+CREATE TABLE robot_types (
+  id SERIAL4 PRIMARY KEY,
+  image_url TEXT NOT NULL,
+  role TEXT NOT NULL,
+  power INTEGER NOT NULL,
+  armor INTEGER NOT NULL,
+  accuracy INTEGER NOT NULL,
+  agility INTEGER NOT NULL,
+  luck INTEGER NOT NULL
+);
 
 CREATE TABLE players (
   id SERIAL4 PRIMARY KEY,
@@ -22,15 +33,9 @@ CREATE TABLE players (
   luck INTEGER NOT NULL
 );
 
-CREATE TABLE robot_types (
+CREATE TABLE equipment_types (
   id SERIAL4 PRIMARY KEY,
-  image_url TEXT NOT NULL,
-  role TEXT NOT NULL,
-  power INTEGER NOT NULL,
-  armor INTEGER NOT NULL,
-  accuracy INTEGER NOT NULL,
-  agility INTEGER NOT NULL,
-  luck INTEGER NOT NULL
+  name VARCHAR(400) NOT NULL
 );
 
 CREATE TABLE equipment (
@@ -44,7 +49,7 @@ CREATE TABLE equipment (
   luck_modifier INTEGER NOT NULL
 );
 
-CREATE TABLE equipment_types (
+CREATE TABLE upgrade_types (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL
 );
@@ -58,11 +63,6 @@ CREATE TABLE upgrades (
   accuracy_modifier INTEGER NOT NULL,
   agility_modifier INTEGER NOT NULL,
   luck_modifier INTEGER NOT NULL
-);
-
-CREATE TABLE upgrade_types (
-  id SERIAL4 PRIMARY KEY,
-  name VARCHAR(400) NOT NULL
 );
 
 CREATE TABLE equipment_inventory (
