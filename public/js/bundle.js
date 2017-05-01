@@ -35939,30 +35939,25 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = _this.props.data;
-    _this.handleStatIncrement = _this.handleStatIncrement.bind(_this);
-    _this.handleStatDecrement = _this.handleStatDecrement.bind(_this);
+    _this.handleStatChangeWith = _this.handleStatChangeWith.bind(_this);
+    _this.handleStatIncrement = _this.handleStatChangeWith(_statsHelper2.default.increment);
+    _this.handleStatDecrement = _this.handleStatChangeWith(_statsHelper2.default.decrement);
     return _this;
   }
 
   _createClass(App, [{
-    key: 'handleStatIncrement',
-    value: function handleStatIncrement(name) {
-      this.setState(function (prevState) {
-        var idx = prevState.stats.findIndex(function (stat) {
-          return stat.name === name;
+    key: 'handleStatChangeWith',
+    value: function handleStatChangeWith(handler) {
+      var _this2 = this;
+
+      return function (name) {
+        return _this2.setState(function (prevState) {
+          var idx = prevState.stats.findIndex(function (stat) {
+            return stat.name === name;
+          });
+          return { stats: (0, _ramda.adjust)(handler, idx, prevState.stats) };
         });
-        return { stats: (0, _ramda.adjust)(_statsHelper2.default.increment, idx, prevState.stats) };
-      });
-    }
-  }, {
-    key: 'handleStatDecrement',
-    value: function handleStatDecrement(name) {
-      this.setState(function (prevState) {
-        var idx = prevState.stats.findIndex(function (stat) {
-          return stat.name === name;
-        });
-        return { stats: (0, _ramda.adjust)(_statsHelper2.default.decrement, idx, prevState.stats) };
-      });
+      };
     }
   }, {
     key: 'render',

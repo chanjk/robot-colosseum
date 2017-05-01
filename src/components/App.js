@@ -30,21 +30,15 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.props.data;
-    this.handleStatIncrement = this.handleStatIncrement.bind(this);
-    this.handleStatDecrement = this.handleStatDecrement.bind(this);
+    this.handleStatChangeWith = this.handleStatChangeWith.bind(this);
+    this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
+    this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
   }
 
-  handleStatIncrement(name) {
-    this.setState(prevState => {
+  handleStatChangeWith(handler) {
+    return name => this.setState(prevState => {
       const idx = prevState.stats.findIndex(stat => stat.name === name);
-      return { stats: adjust(statsHelper.increment, idx, prevState.stats) }
-    });
-  }
-
-  handleStatDecrement(name) {
-    this.setState(prevState => {
-      const idx = prevState.stats.findIndex(stat => stat.name === name);
-      return { stats: adjust(statsHelper.decrement, idx, prevState.stats) }
+      return { stats: adjust(handler, idx, prevState.stats) }
     });
   }
 
