@@ -1,4 +1,4 @@
-import { adjust, merge } from 'ramda';
+import R from 'ramda';
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -48,14 +48,14 @@ export default class App extends React.Component {
   handleEquipmentChange(type, event, index, value) {
     this.setState(prevState => {
       const idx = prevState.equipment.findIndex(equipment => equipment.type === type);
-      return { equipment: adjust(equipment => merge(equipment, { name: value }), idx, prevState.equipment) }
+      return { equipment: R.adjust(equipment => R.merge(equipment, { name: value }), idx, prevState.equipment) }
     });
   }
 
   handleUpgradeChange(type, event, index, value) {
     this.setState(prevState => {
       const idx = prevState.upgrades.findIndex(upgrade => upgrade.type === type);
-      return { upgrades: adjust(upgrade => merge(upgrade, { name: value }), idx, prevState.upgrades) }
+      return { upgrades: R.adjust(upgrade => R.merge(upgrade, { name: value }), idx, prevState.upgrades) }
     });
   }
 
