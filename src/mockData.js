@@ -13,23 +13,28 @@ const mockData = {
   equipment: [
     {
       type: 'Head',
-      name: 'Basic Helmet'
+      name: 'Basic Helmet',
+      all: ['Basic Helmet', 'Dark Helmet']
     },
     {
       type: 'Left Arm',
-      name: 'Z-Buster'
+      name: 'Z-Buster',
+      all: ['Z-Buster', 'Dark Buster']
     },
     {
       type: 'Right Arm',
-      name: 'Z-Saber'
+      name: 'Z-Saber',
+      all: ['Z-Saber', 'Dark Saber']
     },
     {
       type: 'Body',
-      name: 'Basic Armor'
+      name: 'Basic Armor',
+      all: ['Basic Armor', 'Dark Armor']
     },
     {
       type: 'Feet',
-      name: 'Dash Boots'
+      name: 'Dash Boots',
+      all: ['Dash Boots', 'Dark Boots']
     }
   ],
 
