@@ -36277,7 +36277,7 @@ var EquipmentRow = function EquipmentRow(_ref) {
     ),
     _react2.default.createElement(
       _SelectField2.default,
-      { style: style.select, value: name, onChange: onChange.bind(undefined, type) },
+      { autoWidth: true, style: style.select, value: name, onChange: onChange.bind(undefined, type) },
       options.map(function (option) {
         return _react2.default.createElement(_MenuItem2.default, { key: option, value: option, primaryText: option });
       })

@@ -20,7 +20,7 @@ const style = {
 const EquipmentRow = ({ type, name, options, onChange }) => (
   <div>
     <span style={style.type}>{type}</span>
-    <SelectField style={style.select} value={name} onChange={onChange.bind(this, type)}>
+    <SelectField autoWidth={true} style={style.select} value={name} onChange={onChange.bind(this, type)}>
       {options.map(option => (
         <MenuItem key={option} value={option} primaryText={option} />
       ))}
