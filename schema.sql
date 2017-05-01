@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS robot_types;
-DROP TABLE IF EXISTS players;
-DROP TABLE IF EXISTS equipment_types;
-DROP TABLE IF EXISTS equipment;
-DROP TABLE IF EXISTS upgrade_types;
-DROP TABLE IF EXISTS upgrades;
+DROP TABLE IF EXISTS robot_types CASCADE;
+DROP TABLE IF EXISTS players CASCADE;
+DROP TABLE IF EXISTS equipment_types CASCADE;
+DROP TABLE IF EXISTS equipment CASCADE;
+DROP TABLE IF EXISTS upgrade_types CASCADE;
+DROP TABLE IF EXISTS upgrades CASCADE;
 DROP TABLE IF EXISTS equipment_inventory;
 DROP TABLE IF EXISTS upgrades_inventory;
 
@@ -42,6 +42,7 @@ CREATE TABLE equipment (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
   equipment_type_id INTEGER REFERENCES equipment_types (id),
+  robot_type_id INTEGER REFERENCES robot_types (id),
   power_modifier INTEGER NOT NULL,
   armor_modifier INTEGER NOT NULL,
   accuracy_modifier INTEGER NOT NULL,
@@ -58,6 +59,7 @@ CREATE TABLE upgrades (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
   upgrade_type_id INTEGER REFERENCES upgrade_types (id),
+  robot_type_id INTEGER REFERENCES robot_types (id),
   power_modifier INTEGER NOT NULL,
   armor_modifier INTEGER NOT NULL,
   accuracy_modifier INTEGER NOT NULL,
