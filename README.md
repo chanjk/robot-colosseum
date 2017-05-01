@@ -9,9 +9,9 @@ Create a robot, and duke it out with other robots!
 ## Introduction
 ![Screenshot](https://raw.githubusercontent.com/chanjk/robot-colosseum/master/screenshot.png)
 
-This is a Megaman-themed game that pits a robot against another.
+This is a Mega Man&reg;-themed game that pits a robot against another.
 
-The idea is to let the user create a robot based on one from the Megaman universe. This robot can fight other robots to gain EXP and Metals (used as currency) to increase its stats and buy equipment and upgrades.
+The idea is to let the user create a robot based on one from the Mega Man universe. This robot can fight other robots to gain EXP and Metals (used as currency) to increase its stats and buy equipment and upgrades.
 
 ## Technical details
 This is a **Node.js** application with **Express.js** as the web application framework.
