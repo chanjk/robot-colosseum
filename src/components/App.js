@@ -1,4 +1,3 @@
-import { adjust } from 'ramda';
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList, GridTile } from 'material-ui/GridList';
@@ -36,8 +35,8 @@ export default class App extends React.Component {
 
   handleStatChangeWith(handler) {
     return name => this.setState(prevState => {
-      const idx = prevState.stats.findIndex(stat => stat.name === name);
-      return { stats: adjust(handler, idx, prevState.stats) }
+      const stat = prevState.stats.find(stat => stat.name === name);
+      return { stats: handler(stat, prevState.stats, prevState.player.level) }
     });
   }
 
@@ -50,7 +49,7 @@ export default class App extends React.Component {
           <PlayerSummaryCard player={player} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <StatBox stats={stats} handleIncrement={this.handleStatIncrement} handleDecrement={this.handleStatDecrement} />
+          <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} handleIncrement={this.handleStatIncrement} handleDecrement={this.handleStatDecrement} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <EquipmentBox equipment={equipment} />

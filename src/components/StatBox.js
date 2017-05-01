@@ -9,9 +9,9 @@ const style = {
   }
 }
 
-const StatBox = ({ stats, handleIncrement, handleDecrement }) => (
+const StatBox = ({ stats, available, handleIncrement, handleDecrement }) => (
   <List>
-    <Subheader style={style.subheader}>Available points: 10</Subheader>
+    <Subheader style={style.subheader}>Available points: {available}</Subheader>
     {stats.map(stat => (
       <ListItem key={stat.name}>
         <StatRow
