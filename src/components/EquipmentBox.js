@@ -2,11 +2,11 @@ import React from 'react';
 import { List, ListItem } from 'material-ui/List';
 import EquipmentRow from './EquipmentRow';
 
-const EquipmentBox = ({ equipment }) => (
+const EquipmentBox = ({ equipment, onChange }) => (
   <List>
-    {equipment.map(item => (
-      <ListItem key={item.type}>
-        <EquipmentRow key={item.type} type={item.type} name={item.name} />
+    {equipment.map(equipment => (
+      <ListItem key={equipment.type}>
+        <EquipmentRow type={equipment.type} name={equipment.name} options={equipment.all} onChange={onChange} />
       </ListItem>
     ))}
   </List>

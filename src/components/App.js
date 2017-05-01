@@ -1,3 +1,4 @@
+import { adjust, merge } from 'ramda';
 import React from 'react';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -32,6 +33,7 @@ export default class App extends React.Component {
     this.state = this.props.data;
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
+    this.handleEquipmentChange = this.handleEquipmentChange.bind(this);
     injectTapEventPlugin();
   }
 
@@ -39,6 +41,13 @@ export default class App extends React.Component {
     return name => this.setState(prevState => {
       const stat = prevState.stats.find(stat => stat.name === name);
       return { stats: handler(stat, prevState.stats, prevState.player.level) }
+    });
+  }
+
+  handleEquipmentChange(type, event, index, value) {
+    this.setState(prevState => {
+      const idx = prevState.equipment.findIndex(equipment => equipment.type === type);
+      return { equipment: adjust(equipment => merge(equipment, { name: value }), idx, prevState.equipment) }
     });
   }
 
@@ -54,7 +63,7 @@ export default class App extends React.Component {
           <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} handleIncrement={this.handleStatIncrement} handleDecrement={this.handleStatDecrement} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <EquipmentBox equipment={equipment} />
+          <EquipmentBox equipment={equipment} onChange={this.handleEquipmentChange}/>
         </GridTile>
         <GridTile style={styles.gridTile}>
           <UpgradeBox upgrades={upgrades} />
