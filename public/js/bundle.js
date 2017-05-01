@@ -35946,6 +35946,7 @@ var App = function (_React$Component) {
     _this.handleStatIncrement = _this.handleStatChangeWith(_statsHelper2.default.increment);
     _this.handleStatDecrement = _this.handleStatChangeWith(_statsHelper2.default.decrement);
     _this.handleEquipmentChange = _this.handleEquipmentChange.bind(_this);
+    _this.handleUpgradeChange = _this.handleUpgradeChange.bind(_this);
     (0, _reactTapEventPlugin2.default)();
     return _this;
   }
@@ -35974,6 +35975,18 @@ var App = function (_React$Component) {
         return { equipment: (0, _ramda.adjust)(function (equipment) {
             return (0, _ramda.merge)(equipment, { name: value });
           }, idx, prevState.equipment) };
+      });
+    }
+  }, {
+    key: 'handleUpgradeChange',
+    value: function handleUpgradeChange(type, event, index, value) {
+      this.setState(function (prevState) {
+        var idx = prevState.upgrades.findIndex(function (upgrade) {
+          return upgrade.type === type;
+        });
+        return { upgrades: (0, _ramda.adjust)(function (upgrade) {
+            return (0, _ramda.merge)(upgrade, { name: value });
+          }, idx, prevState.upgrades) };
       });
     }
   }, {
@@ -36010,7 +36023,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             _GridList.GridTile,
             { style: styles.gridTile },
-            _react2.default.createElement(_UpgradeBox2.default, { upgrades: upgrades })
+            _react2.default.createElement(_UpgradeBox2.default, { upgrades: upgrades, onChange: this.handleUpgradeChange })
           ),
           _react2.default.createElement(
             _GridList.GridTile,
@@ -36080,19 +36093,24 @@ var mockData = {
 
   upgrades: [{
     type: 'Head',
-    name: 'None'
+    name: 'Eagle Eye',
+    all: ['Eagle Eye', 'Recovery Module']
   }, {
     type: 'Left Arm',
-    name: 'Double Shot'
+    name: 'Double Shot',
+    all: ['Double Shot', 'Plasma Shot']
   }, {
     type: 'Right Arm',
-    name: 'Energy Buster'
+    name: 'Energy Buster',
+    all: ['Energy Buster', 'Range Extender']
   }, {
     type: 'Body',
-    name: 'None'
+    name: 'Shock Absorber',
+    all: ['Shock Absorber', 'Damage Reflect']
   }, {
     type: 'Feet',
-    name: 'Wind Dash'
+    name: 'Wind Dash',
+    all: ['Wind Dash', 'Double Jump']
   }]
 };
 
@@ -36546,7 +36564,8 @@ var _UpgradeRow2 = _interopRequireDefault(_UpgradeRow);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var UpgradeBox = function UpgradeBox(_ref) {
-  var upgrades = _ref.upgrades;
+  var upgrades = _ref.upgrades,
+      onChange = _ref.onChange;
   return _react2.default.createElement(
     _List.List,
     null,
@@ -36554,7 +36573,7 @@ var UpgradeBox = function UpgradeBox(_ref) {
       return _react2.default.createElement(
         _List.ListItem,
         { key: upgrade.type },
-        _react2.default.createElement(_UpgradeRow2.default, { type: upgrade.type, name: upgrade.name })
+        _react2.default.createElement(_UpgradeRow2.default, { type: upgrade.type, name: upgrade.name, options: upgrade.all, onChange: onChange })
       );
     })
   );
@@ -36604,7 +36623,9 @@ var style = {
 
 var UpgradeRow = function UpgradeRow(_ref) {
   var type = _ref.type,
-      name = _ref.name;
+      name = _ref.name,
+      options = _ref.options,
+      onChange = _ref.onChange;
   return _react2.default.createElement(
     'div',
     null,
@@ -36615,8 +36636,10 @@ var UpgradeRow = function UpgradeRow(_ref) {
     ),
     _react2.default.createElement(
       _SelectField2.default,
-      { style: style.select, value: 1 },
-      _react2.default.createElement(_MenuItem2.default, { value: 1, primaryText: name })
+      { autoWidth: true, style: style.select, value: name, onChange: onChange.bind(undefined, type) },
+      options.map(function (option) {
+        return _react2.default.createElement(_MenuItem2.default, { key: option, value: option, primaryText: option });
+      })
     )
   );
 };

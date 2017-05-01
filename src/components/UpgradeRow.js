@@ -17,11 +17,13 @@ const style = {
   }
 }
 
-const UpgradeRow = ({ type, name }) => (
+const UpgradeRow = ({ type, name, options, onChange }) => (
   <div>
     <span style={style.type}>{type}</span>
-    <SelectField style={style.select} value={1}>
-      <MenuItem value={1} primaryText={name} />
+    <SelectField autoWidth={true} style={style.select} value={name} onChange={onChange.bind(this, type)}>
+      {options.map(option => (
+        <MenuItem key={option} value={option} primaryText={option} />
+      ))}
     </SelectField>
   </div>
 );

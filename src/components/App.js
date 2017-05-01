@@ -34,6 +34,7 @@ export default class App extends React.Component {
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
     this.handleEquipmentChange = this.handleEquipmentChange.bind(this);
+    this.handleUpgradeChange = this.handleUpgradeChange.bind(this);
     injectTapEventPlugin();
   }
 
@@ -51,6 +52,13 @@ export default class App extends React.Component {
     });
   }
 
+  handleUpgradeChange(type, event, index, value) {
+    this.setState(prevState => {
+      const idx = prevState.upgrades.findIndex(upgrade => upgrade.type === type);
+      return { upgrades: adjust(upgrade => merge(upgrade, { name: value }), idx, prevState.upgrades) }
+    });
+  }
+
   render() {
     const { player, stats, equipment, upgrades } = this.state;
 
@@ -63,10 +71,10 @@ export default class App extends React.Component {
           <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} onIncrement={this.handleStatIncrement} onDecrement={this.handleStatDecrement} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <EquipmentBox equipment={equipment} onChange={this.handleEquipmentChange}/>
+          <EquipmentBox equipment={equipment} onChange={this.handleEquipmentChange} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <UpgradeBox upgrades={upgrades} />
+          <UpgradeBox upgrades={upgrades} onChange={this.handleUpgradeChange} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <BattleRatingChart ratings={ratingsHelper.calcRatings(stats)} />
