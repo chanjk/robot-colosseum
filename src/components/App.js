@@ -1,4 +1,5 @@
 import React from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { GridList, GridTile } from 'material-ui/GridList';
 import PlayerSummaryCard from './PlayerSummaryCard';
@@ -31,6 +32,7 @@ export default class App extends React.Component {
     this.state = this.props.data;
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
+    injectTapEventPlugin();
   }
 
   handleStatChangeWith(handler) {
