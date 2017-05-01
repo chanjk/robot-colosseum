@@ -41,23 +41,28 @@ const mockData = {
   upgrades: [
     {
       type: 'Head',
-      name: 'None'
+      name: 'Eagle Eye',
+      all: ['Eagle Eye', 'Recovery Module']
     },
     {
       type: 'Left Arm',
-      name: 'Double Shot'
+      name: 'Double Shot',
+      all: ['Double Shot', 'Plasma Shot']
     },
     {
       type: 'Right Arm',
-      name: 'Energy Buster'
+      name: 'Energy Buster',
+      all: ['Energy Buster', 'Range Extender']
     },
     {
       type: 'Body',
-      name: 'None'
+      name: 'Shock Absorber',
+      all: ['Shock Absorber', 'Damage Reflect']
     },
     {
       type: 'Feet',
-      name: 'Wind Dash'
+      name: 'Wind Dash',
+      all: ['Wind Dash', 'Double Jump']
     }
   ]
 }
