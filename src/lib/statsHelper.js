@@ -3,7 +3,7 @@ import { clamp, merge, sum, update } from 'ramda';
 const MIN_STAT = 5, MAX_STAT = 50;
 
 const change = amount => ((stat, stats, level) => {
-  if (calcCurrentTotal(stats) + amount > calcMaximumTotal(level)) return stats;
+  if (amount > calcAvailable(level, stats)) return stats;
 
   const newStat = merge(stat, { value: clamp(MIN_STAT, MAX_STAT, stat.value + amount) });
 

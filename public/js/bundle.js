@@ -36689,7 +36689,7 @@ var MIN_STAT = 5,
 
 var change = function change(amount) {
   return function (stat, stats, level) {
-    if (calcCurrentTotal(stats) + amount > calcMaximumTotal(level)) return stats;
+    if (amount > calcAvailable(level, stats)) return stats;
 
     var newStat = (0, _ramda.merge)(stat, { value: (0, _ramda.clamp)(MIN_STAT, MAX_STAT, stat.value + amount) });
 
