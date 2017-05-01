@@ -2,7 +2,7 @@ const mockData = {
   player: {
     name: 'Zero',
     role: 'Maverick Hunter',
-    imageUrl: 'https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg',
+    imageUrl: '/images/zero_profile.jpg',
     level: 30,
     metalCount: 2000,
     winCount: 20

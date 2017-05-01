@@ -27,8 +27,8 @@ export default class FightDialog extends React.Component {
       <RaisedButton label="Fight a random player" primary={true} fullWidth={true} onTouchTap={this.handleOpen} />
       <RaisedButton label="Fight an enemy" secondary={true} fullWidth={true} onTouchTap={this.handleOpen} />
       <Dialog title="You are fighting Sigma!" actions={action} modal={true} open={this.state.open} onRequestClose={this.handleClose}>
-        <img style={{float:'left', height: 200}} src="http://files.gamebanana.com/img/ico/sprays/zero_run_ekah_render.gif" />
-        <img style={{float:'right', height: 200}} src="http://megaman.retropixel.net/mmx/1/animated_sprite_sigma_x.gif" />
+        <img style={{float:'left', height: 200}} src="/images/zero_running.gif" />
+        <img style={{float:'right', height: 200}} src="/images/sigma_standing_ready.gif" />
       </Dialog>
     </div>;
   }

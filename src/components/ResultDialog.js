@@ -26,7 +26,7 @@ export default class ResultDialog extends React.Component {
     return <div>
       <RaisedButton label="See result" primary={true} onTouchTap={this.handleOpen} />
       <Dialog title="You win the fight!" actions={action} open={this.state.open} onRequestClose={this.handleClose}>
-        <img style={{float:'left', height: 200}} src="https://tcrf.net/images/b/ba/MMX4_Zeroweapget.png" />
+        <img style={{float:'left', height: 200}} src="/images/zero_win.png" />
         <span>You earned 200 EXP, 100 Metals!</span>
       </Dialog>
     </div>;

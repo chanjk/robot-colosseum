@@ -36311,7 +36311,7 @@ var mockData = {
   player: {
     name: 'Zero',
     role: 'Maverick Hunter',
-    imageUrl: 'https://static.comicvine.com/uploads/original/11122/111224383/4484237-8931671768-x7_ze.jpg',
+    imageUrl: '/images/zero_profile.jpg',
     level: 30,
     metalCount: 2000,
     winCount: 20
@@ -36617,8 +36617,8 @@ var FightDialog = function (_React$Component) {
         _react2.default.createElement(
           _Dialog2.default,
           { title: 'You are fighting Sigma!', actions: action, modal: true, open: this.state.open, onRequestClose: this.handleClose },
-          _react2.default.createElement('img', { style: { float: 'left', height: 200 }, src: 'http://files.gamebanana.com/img/ico/sprays/zero_run_ekah_render.gif' }),
-          _react2.default.createElement('img', { style: { float: 'right', height: 200 }, src: 'http://megaman.retropixel.net/mmx/1/animated_sprite_sigma_x.gif' })
+          _react2.default.createElement('img', { style: { float: 'left', height: 200 }, src: '/images/zero_running.gif' }),
+          _react2.default.createElement('img', { style: { float: 'right', height: 200 }, src: '/images/sigma_standing_ready.gif' })
         )
       );
     }
@@ -36776,7 +36776,7 @@ var ResultDialog = function (_React$Component) {
         _react2.default.createElement(
           _Dialog2.default,
           { title: 'You win the fight!', actions: action, open: this.state.open, onRequestClose: this.handleClose },
-          _react2.default.createElement('img', { style: { float: 'left', height: 200 }, src: 'https://tcrf.net/images/b/ba/MMX4_Zeroweapget.png' }),
+          _react2.default.createElement('img', { style: { float: 'left', height: 200 }, src: '/images/zero_win.png' }),
           _react2.default.createElement(
             'span',
             null,
