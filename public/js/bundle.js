@@ -36527,13 +36527,13 @@ var StatRow = function StatRow(_ref) {
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: onIncrement.bind(undefined, name) },
-      _react2.default.createElement(_add2.default, null)
+      { iconStyle: style.buttonIcon, style: style.button, onClick: onDecrement.bind(undefined, name) },
+      _react2.default.createElement(_remove2.default, null)
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: onDecrement.bind(undefined, name) },
-      _react2.default.createElement(_remove2.default, null)
+      { iconStyle: style.buttonIcon, style: style.button, onClick: onIncrement.bind(undefined, name) },
+      _react2.default.createElement(_add2.default, null)
     )
   );
 };
