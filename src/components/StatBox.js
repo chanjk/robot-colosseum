@@ -5,7 +5,7 @@ import StatRow from './StatRow';
 
 const style = {
   subheader: {
-    marginBottom: -24
+    marginBottom: -16
   }
 }
 

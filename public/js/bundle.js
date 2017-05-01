@@ -36372,7 +36372,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var style = {
   subheader: {
-    marginBottom: -24
+    marginBottom: -16
   }
 };
 
@@ -36480,12 +36480,12 @@ var StatRow = function StatRow(_ref) {
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleIncrement.bind(null, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: handleIncrement.bind(undefined, name) },
       _react2.default.createElement(_add2.default, null)
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleDecrement.bind(null, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: handleDecrement.bind(undefined, name) },
       _react2.default.createElement(_remove2.default, null)
     )
   );
