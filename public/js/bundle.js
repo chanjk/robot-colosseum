@@ -36000,7 +36000,7 @@ var App = function (_React$Component) {
           _react2.default.createElement(
             _GridList.GridTile,
             { style: styles.gridTile },
-            _react2.default.createElement(_StatBox2.default, { stats: stats, available: _statsHelper2.default.calcAvailable(player.level, stats), handleIncrement: this.handleStatIncrement, handleDecrement: this.handleStatDecrement })
+            _react2.default.createElement(_StatBox2.default, { stats: stats, available: _statsHelper2.default.calcAvailable(player.level, stats), onIncrement: this.handleStatIncrement, onDecrement: this.handleStatDecrement })
           ),
           _react2.default.createElement(
             _GridList.GridTile,
@@ -36407,8 +36407,8 @@ var style = {
 var StatBox = function StatBox(_ref) {
   var stats = _ref.stats,
       available = _ref.available,
-      handleIncrement = _ref.handleIncrement,
-      handleDecrement = _ref.handleDecrement;
+      onIncrement = _ref.onIncrement,
+      onDecrement = _ref.onDecrement;
   return _react2.default.createElement(
     _List.List,
     null,
@@ -36425,8 +36425,8 @@ var StatBox = function StatBox(_ref) {
         _react2.default.createElement(_StatRow2.default, {
           name: stat.name,
           value: stat.value,
-          handleIncrement: handleIncrement,
-          handleDecrement: handleDecrement })
+          onIncrement: onIncrement,
+          onDecrement: onDecrement })
       );
     })
   );
@@ -36492,8 +36492,8 @@ var style = {
 var StatRow = function StatRow(_ref) {
   var name = _ref.name,
       value = _ref.value,
-      handleIncrement = _ref.handleIncrement,
-      handleDecrement = _ref.handleDecrement;
+      onIncrement = _ref.onIncrement,
+      onDecrement = _ref.onDecrement;
   return _react2.default.createElement(
     'div',
     null,
@@ -36509,12 +36509,12 @@ var StatRow = function StatRow(_ref) {
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleIncrement.bind(undefined, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: onIncrement.bind(undefined, name) },
       _react2.default.createElement(_add2.default, null)
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleDecrement.bind(undefined, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: onDecrement.bind(undefined, name) },
       _react2.default.createElement(_remove2.default, null)
     )
   );

@@ -60,7 +60,7 @@ export default class App extends React.Component {
           <PlayerSummaryCard player={player} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} handleIncrement={this.handleStatIncrement} handleDecrement={this.handleStatDecrement} />
+          <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} onIncrement={this.handleStatIncrement} onDecrement={this.handleStatDecrement} />
         </GridTile>
         <GridTile style={styles.gridTile}>
           <EquipmentBox equipment={equipment} onChange={this.handleEquipmentChange}/>

@@ -9,7 +9,7 @@ const style = {
   }
 }
 
-const StatBox = ({ stats, available, handleIncrement, handleDecrement }) => (
+const StatBox = ({ stats, available, onIncrement, onDecrement }) => (
   <List>
     <Subheader style={style.subheader}>Available points: {available}</Subheader>
     {stats.map(stat => (
@@ -17,8 +17,8 @@ const StatBox = ({ stats, available, handleIncrement, handleDecrement }) => (
         <StatRow
           name={stat.name}
           value={stat.value}
-          handleIncrement={handleIncrement}
-          handleDecrement={handleDecrement} />
+          onIncrement={onIncrement}
+          onDecrement={onDecrement} />
       </ListItem>
     ))}
   </List>
