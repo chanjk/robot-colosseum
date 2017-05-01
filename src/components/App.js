@@ -8,7 +8,7 @@ import StatBox from './StatBox';
 import EquipmentBox from './EquipmentBox';
 import UpgradeBox from './UpgradeBox';
 import BattleRatingChart from './BattleRatingChart';
-import FightMenu from './FightMenu';
+import FightDialog from './FightDialog';
 import statsHelper from '../lib/statsHelper';
 import ratingsHelper from '../lib/ratingsHelper';
 
@@ -80,7 +80,7 @@ export default class App extends React.Component {
           <BattleRatingChart ratings={ratingsHelper.calcRatings(stats)} />
         </GridTile>
         <GridTile style={styles.gridTile}>
-          <FightMenu />
+          <FightDialog />
         </GridTile>
       </GridList>
     </MuiThemeProvider>;
