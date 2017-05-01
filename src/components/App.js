@@ -30,7 +30,6 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = this.props.data;
-    this.handleStatChangeWith = this.handleStatChangeWith.bind(this);
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
   }

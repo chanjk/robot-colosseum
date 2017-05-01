@@ -35939,7 +35939,6 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = _this.props.data;
-    _this.handleStatChangeWith = _this.handleStatChangeWith.bind(_this);
     _this.handleStatIncrement = _this.handleStatChangeWith(_statsHelper2.default.increment);
     _this.handleStatDecrement = _this.handleStatChangeWith(_statsHelper2.default.decrement);
     return _this;
@@ -36481,12 +36480,12 @@ var StatRow = function StatRow(_ref) {
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleIncrement.bind(undefined, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: handleIncrement.bind(null, name) },
       _react2.default.createElement(_add2.default, null)
     ),
     _react2.default.createElement(
       _IconButton2.default,
-      { iconStyle: style.buttonIcon, style: style.button, onClick: handleDecrement.bind(undefined, name) },
+      { iconStyle: style.buttonIcon, style: style.button, onClick: handleDecrement.bind(null, name) },
       _react2.default.createElement(_remove2.default, null)
     )
   );
