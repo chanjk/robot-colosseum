@@ -36115,6 +36115,8 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _ramda = __webpack_require__(97);
 
+var _ramda2 = _interopRequireDefault(_ramda);
+
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
@@ -36222,8 +36224,8 @@ var App = function (_React$Component) {
         var idx = prevState.equipment.findIndex(function (equipment) {
           return equipment.type === type;
         });
-        return { equipment: (0, _ramda.adjust)(function (equipment) {
-            return (0, _ramda.merge)(equipment, { name: value });
+        return { equipment: _ramda2.default.adjust(function (equipment) {
+            return _ramda2.default.merge(equipment, { name: value });
           }, idx, prevState.equipment) };
       });
     }
@@ -36234,8 +36236,8 @@ var App = function (_React$Component) {
         var idx = prevState.upgrades.findIndex(function (upgrade) {
           return upgrade.type === type;
         });
-        return { upgrades: (0, _ramda.adjust)(function (upgrade) {
-            return (0, _ramda.merge)(upgrade, { name: value });
+        return { upgrades: _ramda2.default.adjust(function (upgrade) {
+            return _ramda2.default.merge(upgrade, { name: value });
           }, idx, prevState.upgrades) };
       });
     }
@@ -37087,6 +37089,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _ramda = __webpack_require__(97);
 
+var _ramda2 = _interopRequireDefault(_ramda);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var calcAttack = function calcAttack(power, accuracy) {
   return Math.floor(power * 2.5 + accuracy * 1.25);
 };
@@ -37098,13 +37104,13 @@ var calcSpeed = function calcSpeed(agility) {
 };
 
 var calcRatings = function calcRatings(stats) {
-  var _mergeAll = (0, _ramda.mergeAll)(stats.map(function (stat) {
-    return (0, _ramda.compose)(_ramda.fromPairs, (0, _ramda.append)(_ramda.__, []), _ramda.values)(stat);
+  var _R$mergeAll = _ramda2.default.mergeAll(stats.map(function (stat) {
+    return _ramda2.default.compose(_ramda2.default.fromPairs, _ramda2.default.append(_ramda2.default.__, []), _ramda2.default.values)(stat);
   })),
-      Power = _mergeAll.Power,
-      Accuracy = _mergeAll.Accuracy,
-      Armor = _mergeAll.Armor,
-      Agility = _mergeAll.Agility;
+      Power = _R$mergeAll.Power,
+      Accuracy = _R$mergeAll.Accuracy,
+      Armor = _R$mergeAll.Armor,
+      Agility = _R$mergeAll.Agility;
 
   return [{
     name: 'Attack',
@@ -37137,6 +37143,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _ramda = __webpack_require__(97);
 
+var _ramda2 = _interopRequireDefault(_ramda);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var MIN_STAT = 5,
     MAX_STAT = 50;
 
@@ -37144,9 +37154,9 @@ var change = function change(amount) {
   return function (stat, stats, level) {
     if (amount > calcAvailable(level, stats)) return stats;
 
-    var newStat = (0, _ramda.merge)(stat, { value: (0, _ramda.clamp)(MIN_STAT, MAX_STAT, stat.value + amount) });
+    var newStat = _ramda2.default.merge(stat, { value: _ramda2.default.clamp(MIN_STAT, MAX_STAT, stat.value + amount) });
 
-    return (0, _ramda.update)(stats.indexOf(stat), newStat, stats);
+    return _ramda2.default.update(stats.indexOf(stat), newStat, stats);
   };
 };
 
@@ -37154,7 +37164,7 @@ var calcMaximumTotal = function calcMaximumTotal(level) {
   return level * 3;
 };
 var calcCurrentTotal = function calcCurrentTotal(stats) {
-  return (0, _ramda.sum)(stats.map(function (stat) {
+  return _ramda2.default.sum(stats.map(function (stat) {
     return stat.value;
   }));
 };
