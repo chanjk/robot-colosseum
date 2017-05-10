@@ -10,7 +10,7 @@ const change = amount => ((stat, stats, level) => {
   return R.update(stats.indexOf(stat), newStat, stats);
 });
 
-const calcMaximumTotal = level => level * 3;
+const calcMaximumTotal = level => (level - 1) * 3 + 15;
 const calcCurrentTotal = stats => R.sum(stats.map(stat => stat.value));
 const calcAvailable = (level, stats) => calcMaximumTotal(level) - calcCurrentTotal(stats);
 
