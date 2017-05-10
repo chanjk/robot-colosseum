@@ -9,8 +9,9 @@ DROP TABLE IF EXISTS upgrades_inventory;
 
 CREATE TABLE robot_types (
   id SERIAL4 PRIMARY KEY,
-  image_url TEXT NOT NULL,
+  name VARCHAR(400) NOT NULL,
   role TEXT NOT NULL,
+  image_url TEXT NOT NULL,
   power INTEGER NOT NULL,
   armor INTEGER NOT NULL,
   accuracy INTEGER NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE robot_types (
 CREATE TABLE players (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
-  robot_type_id INTEGER REFERENCES robot_types (id),
+  robot_type_id INTEGER REFERENCES robot_types,
   role TEXT,
   level INTEGER NOT NULL,
   metalCount INTEGER NOT NULL,
@@ -41,8 +42,8 @@ CREATE TABLE equipment_types (
 CREATE TABLE equipment (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
-  equipment_type_id INTEGER REFERENCES equipment_types (id),
-  robot_type_id INTEGER REFERENCES robot_types (id),
+  equipment_type_id INTEGER REFERENCES equipment_types,
+  robot_type_id INTEGER REFERENCES robot_types,
   power_modifier INTEGER NOT NULL,
   armor_modifier INTEGER NOT NULL,
   accuracy_modifier INTEGER NOT NULL,
@@ -58,8 +59,8 @@ CREATE TABLE upgrade_types (
 CREATE TABLE upgrades (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(400) NOT NULL,
-  upgrade_type_id INTEGER REFERENCES upgrade_types (id),
-  robot_type_id INTEGER REFERENCES robot_types (id),
+  upgrade_type_id INTEGER REFERENCES upgrade_types,
+  robot_type_id INTEGER REFERENCES robot_types,
   power_modifier INTEGER NOT NULL,
   armor_modifier INTEGER NOT NULL,
   accuracy_modifier INTEGER NOT NULL,
@@ -69,12 +70,12 @@ CREATE TABLE upgrades (
 
 CREATE TABLE equipment_inventory (
   id SERIAL4 PRIMARY KEY,
-  equipment_id INTEGER REFERENCES equipment (id),
-  player_id INTEGER REFERENCES players (id)
+  equipment_id INTEGER REFERENCES equipment,
+  player_id INTEGER REFERENCES players
 );
 
 CREATE TABLE upgrades_inventory (
   id SERIAL4 PRIMARY KEY,
-  upgrade_id INTEGER REFERENCES upgrades (id),
-  player_id INTEGER REFERENCES players (id)
+  upgrade_id INTEGER REFERENCES upgrades,
+  player_id INTEGER REFERENCES players
 );
