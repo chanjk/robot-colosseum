@@ -5,7 +5,7 @@ const MIN_STAT = 5, MAX_STAT = 50;
 const change = amount => ((stat, stats, level) => {
   if (amount > calcAvailable(level, stats)) return stats;
 
-  const newStat = R.merge(stat, { value: R.clamp(MIN_STAT, MAX_STAT, stat.value + amount) });
+  const newStat = R.assoc('value', R.clamp(MIN_STAT, MAX_STAT, stat.value + amount), stat);
 
   return R.update(stats.indexOf(stat), newStat, stats);
 });

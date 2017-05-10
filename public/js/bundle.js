@@ -36225,7 +36225,7 @@ var App = function (_React$Component) {
           return equipment.type === type;
         });
         return { equipment: _ramda2.default.adjust(function (equipment) {
-            return _ramda2.default.merge(equipment, { name: value });
+            return _ramda2.default.assoc('name', value, equipment);
           }, idx, prevState.equipment) };
       });
     }
@@ -36237,7 +36237,7 @@ var App = function (_React$Component) {
           return upgrade.type === type;
         });
         return { upgrades: _ramda2.default.adjust(function (upgrade) {
-            return _ramda2.default.merge(upgrade, { name: value });
+            return _ramda2.default.assoc('name', value, upgrade);
           }, idx, prevState.upgrades) };
       });
     }
@@ -37154,7 +37154,7 @@ var change = function change(amount) {
   return function (stat, stats, level) {
     if (amount > calcAvailable(level, stats)) return stats;
 
-    var newStat = _ramda2.default.merge(stat, { value: _ramda2.default.clamp(MIN_STAT, MAX_STAT, stat.value + amount) });
+    var newStat = _ramda2.default.assoc('value', _ramda2.default.clamp(MIN_STAT, MAX_STAT, stat.value + amount), stat);
 
     return _ramda2.default.update(stats.indexOf(stat), newStat, stats);
   };

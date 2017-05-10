@@ -48,14 +48,14 @@ export default class App extends React.Component {
   handleEquipmentChange(type, event, index, value) {
     this.setState(prevState => {
       const idx = prevState.equipment.findIndex(equipment => equipment.type === type);
-      return { equipment: R.adjust(equipment => R.merge(equipment, { name: value }), idx, prevState.equipment) }
+      return { equipment: R.adjust(equipment => R.assoc('name', value, equipment), idx, prevState.equipment) }
     });
   }
 
   handleUpgradeChange(type, event, index, value) {
     this.setState(prevState => {
       const idx = prevState.upgrades.findIndex(upgrade => upgrade.type === type);
-      return { upgrades: R.adjust(upgrade => R.merge(upgrade, { name: value }), idx, prevState.upgrades) }
+      return { upgrades: R.adjust(upgrade => R.assoc('name', value, upgrade), idx, prevState.upgrades) }
     });
   }
 
