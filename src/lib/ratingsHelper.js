@@ -5,7 +5,7 @@ const calcDefence = (armor, agility) => Math.floor(armor * 2.5 + agility * 1.25)
 const calcSpeed = agility => Math.floor(agility * 3);
 
 const calcRatings = stats => {
-  const { Power, Accuracy, Armor, Agility } = R.mergeAll(stats.map(stat => R.compose(R.fromPairs, R.append(R.__, []), R.values)(stat)));
+  const { Power, Accuracy, Armor, Agility } = R.mergeAll(stats.map(R.compose(R.fromPairs, R.append(R.__, []), R.values)));
 
   return [{
     name: 'Attack',

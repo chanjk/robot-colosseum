@@ -36224,9 +36224,7 @@ var App = function (_React$Component) {
         var idx = prevState.equipment.findIndex(function (equipment) {
           return equipment.type === type;
         });
-        return { equipment: _ramda2.default.adjust(function (equipment) {
-            return _ramda2.default.assoc('name', value, equipment);
-          }, idx, prevState.equipment) };
+        return { equipment: _ramda2.default.adjust(_ramda2.default.assoc('name', value, _ramda2.default.__), idx, prevState.equipment) };
       });
     }
   }, {
@@ -36236,9 +36234,7 @@ var App = function (_React$Component) {
         var idx = prevState.upgrades.findIndex(function (upgrade) {
           return upgrade.type === type;
         });
-        return { upgrades: _ramda2.default.adjust(function (upgrade) {
-            return _ramda2.default.assoc('name', value, upgrade);
-          }, idx, prevState.upgrades) };
+        return { upgrades: _ramda2.default.adjust(_ramda2.default.assoc('name', value, _ramda2.default.__), idx, prevState.upgrades) };
       });
     }
   }, {
@@ -37104,9 +37100,7 @@ var calcSpeed = function calcSpeed(agility) {
 };
 
 var calcRatings = function calcRatings(stats) {
-  var _R$mergeAll = _ramda2.default.mergeAll(stats.map(function (stat) {
-    return _ramda2.default.compose(_ramda2.default.fromPairs, _ramda2.default.append(_ramda2.default.__, []), _ramda2.default.values)(stat);
-  })),
+  var _R$mergeAll = _ramda2.default.mergeAll(stats.map(_ramda2.default.compose(_ramda2.default.fromPairs, _ramda2.default.append(_ramda2.default.__, []), _ramda2.default.values))),
       Power = _R$mergeAll.Power,
       Accuracy = _R$mergeAll.Accuracy,
       Armor = _R$mergeAll.Armor,
