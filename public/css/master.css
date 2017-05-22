@@ -6,3 +6,40 @@ body {
   min-height: 100%;
   font-family: 'Roboto', sans-serif;
 }
+
+header {
+  font-family: 'Press Start 2P', cursive;
+}
+
+h1 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#login-signup {
+  width: 80%;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+#login, #signup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3em;
+}
+
+@media (min-width: 768px) {
+  #login-signup {
+    width: 60%;
+  }
+
+  #login {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #signup {
+    display: block;
+  }
+}
