@@ -6,7 +6,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 const style = {
   textField: {
-    marginBottom: 15
+    marginBottom: 20
   },
 }
 
