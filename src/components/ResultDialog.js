@@ -9,7 +9,7 @@ export default class ResultDialog extends React.Component {
     super(props);
     this.state = { open: false }
     this.handleOpen = this.handleOpen.bind(this);
-    this.handleClose = R.compose(this.props.onTouchTap, this.handleClose.bind(this));
+    this.handleClose = R.compose(props.onTouchTap, this.handleClose.bind(this));
   }
 
   handleOpen() {
