@@ -34,6 +34,7 @@ export default class App extends React.Component {
     this.state = props.data;
     this.state.errors = {}
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
     this.handleStatDecrement = this.handleStatChangeWith(statsHelper.decrement);
     this.handleEquipmentChange = this.handleEquipmentChange.bind(this);
@@ -67,6 +68,31 @@ export default class App extends React.Component {
     }
   }
 
+  handleSignup(name, password, robotType, role) {
+    if (name && password) {
+      fetch('/api/players/' + name).then(res => res.json().then(user => {
+        if (user) {
+          this.setState({
+            errors: {
+              signup: {
+                name: 'Name has already been taken.',
+              }
+            }
+          });
+        } else {
+          this.setState({ user: 'Zero' });
+        }
+      }));
+    } else {
+      const signupErrors = {}
+
+      if (!name) signupErrors.name = 'Name cannot be blank.';
+      if (!password) signupErrors.password = 'Password cannot be blank.';
+
+      this.setState({ errors: { signup: signupErrors } });
+    }
+  }
+
   handleStatChangeWith(handler) {
     return name => this.setState(prevState => {
       const stat = prevState.stats.find(stat => stat.name === name);
@@ -91,7 +117,7 @@ export default class App extends React.Component {
   render() {
     if (!this.state.user) {
       return <MuiThemeProvider>
-        <LoginSignupPage onLogin={this.handleLogin} loginErrors={this.state.errors.login} />
+        <LoginSignupPage onLogin={this.handleLogin} onSignup={this.handleSignup} loginErrors={this.state.errors.login} signupErrors={this.state.errors.signup} />
       </MuiThemeProvider>;
     }
 

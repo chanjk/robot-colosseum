@@ -23,6 +23,7 @@ const style = {
 export default class SignupForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {}
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
@@ -33,7 +34,7 @@ export default class SignupForm extends React.Component {
   }
 
   handlePasswordChange(event) {
-    this.setState({ name: event.target.value });
+    this.setState({ password: event.target.value });
   }
 
   handleSignup() {
@@ -42,19 +43,21 @@ export default class SignupForm extends React.Component {
 
   render() {
     return <div id="signup">
-      <TextField
-        style={style.textField}
-        name="name"
-        onChange={this.handleNameChange}
-        hintText="Robot name"
-        errorText={this.props.errors.name} />
-      <TextField
-        style={style.textField}
-        name="password"
-        type="password"
-        onChange={this.handlePasswordChange}
-        hintText="Password"
-        errorText={this.props.errors.password} />
+      <div id="signup-name-password">
+        <TextField
+          style={style.textField}
+          name="name"
+          onChange={this.handleNameChange}
+          hintText="Robot name"
+          errorText={this.props.errors.name} />
+        <TextField
+          style={style.textField}
+          name="password"
+          type="password"
+          onChange={this.handlePasswordChange}
+          hintText="Password"
+          errorText={this.props.errors.password} />
+      </div>
       <h2>Choose a robot type</h2>
       <Card style={style.card}>
         <CardMedia>

@@ -36272,6 +36272,7 @@ var App = function (_React$Component) {
     _this.state = props.data;
     _this.state.errors = {};
     _this.handleLogin = _this.handleLogin.bind(_this);
+    _this.handleSignup = _this.handleSignup.bind(_this);
     _this.handleStatIncrement = _this.handleStatChangeWith(_statsHelper2.default.increment);
     _this.handleStatDecrement = _this.handleStatChangeWith(_statsHelper2.default.decrement);
     _this.handleEquipmentChange = _this.handleEquipmentChange.bind(_this);
@@ -36312,12 +36313,42 @@ var App = function (_React$Component) {
       }
     }
   }, {
-    key: 'handleStatChangeWith',
-    value: function handleStatChangeWith(handler) {
+    key: 'handleSignup',
+    value: function handleSignup(name, password, robotType, role) {
       var _this3 = this;
 
+      if (name && password) {
+        fetch('/api/players/' + name).then(function (res) {
+          return res.json().then(function (user) {
+            if (user) {
+              _this3.setState({
+                errors: {
+                  signup: {
+                    name: 'Name has already been taken.'
+                  }
+                }
+              });
+            } else {
+              _this3.setState({ user: 'Zero' });
+            }
+          });
+        });
+      } else {
+        var signupErrors = {};
+
+        if (!name) signupErrors.name = 'Name cannot be blank.';
+        if (!password) signupErrors.password = 'Password cannot be blank.';
+
+        this.setState({ errors: { signup: signupErrors } });
+      }
+    }
+  }, {
+    key: 'handleStatChangeWith',
+    value: function handleStatChangeWith(handler) {
+      var _this4 = this;
+
       return function (name) {
-        return _this3.setState(function (prevState) {
+        return _this4.setState(function (prevState) {
           var stat = prevState.stats.find(function (stat) {
             return stat.name === name;
           });
@@ -36352,7 +36383,7 @@ var App = function (_React$Component) {
         return _react2.default.createElement(
           _MuiThemeProvider2.default,
           null,
-          _react2.default.createElement(_LoginSignupPage2.default, { onLogin: this.handleLogin, loginErrors: this.state.errors.login })
+          _react2.default.createElement(_LoginSignupPage2.default, { onLogin: this.handleLogin, onSignup: this.handleSignup, loginErrors: this.state.errors.login, signupErrors: this.state.errors.signup })
         );
       }
 
@@ -37122,6 +37153,7 @@ var SignupForm = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (SignupForm.__proto__ || Object.getPrototypeOf(SignupForm)).call(this, props));
 
+    _this.state = {};
     _this.handleNameChange = _this.handleNameChange.bind(_this);
     _this.handlePasswordChange = _this.handlePasswordChange.bind(_this);
     _this.handleSignup = _this.handleSignup.bind(_this);
@@ -37136,7 +37168,7 @@ var SignupForm = function (_React$Component) {
   }, {
     key: 'handlePasswordChange',
     value: function handlePasswordChange(event) {
-      this.setState({ name: event.target.value });
+      this.setState({ password: event.target.value });
     }
   }, {
     key: 'handleSignup',
@@ -37149,19 +37181,23 @@ var SignupForm = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { id: 'signup' },
-        _react2.default.createElement(_TextField2.default, {
-          style: style.textField,
-          name: 'name',
-          onChange: this.handleNameChange,
-          hintText: 'Robot name',
-          errorText: this.props.errors.name }),
-        _react2.default.createElement(_TextField2.default, {
-          style: style.textField,
-          name: 'password',
-          type: 'password',
-          onChange: this.handlePasswordChange,
-          hintText: 'Password',
-          errorText: this.props.errors.password }),
+        _react2.default.createElement(
+          'div',
+          { id: 'signup-name-password' },
+          _react2.default.createElement(_TextField2.default, {
+            style: style.textField,
+            name: 'name',
+            onChange: this.handleNameChange,
+            hintText: 'Robot name',
+            errorText: this.props.errors.name }),
+          _react2.default.createElement(_TextField2.default, {
+            style: style.textField,
+            name: 'password',
+            type: 'password',
+            onChange: this.handlePasswordChange,
+            hintText: 'Password',
+            errorText: this.props.errors.password })
+        ),
         _react2.default.createElement(
           'h2',
           null,

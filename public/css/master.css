@@ -22,9 +22,12 @@ h1 {
   margin: 0 auto;
 }
 
-#login, #signup {
+#login, #signup, #signup-name-password {
   display: flex;
   flex-direction: column;
+}
+
+#login, #signup {
   margin-bottom: 3em;
 }
 
@@ -33,7 +36,7 @@ h1 {
     width: 60%;
   }
 
-  #login {
+  #login, #signup-name-password {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
