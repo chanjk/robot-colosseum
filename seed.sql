@@ -84,45 +84,45 @@ INSERT INTO upgrades (name, upgrade_type_id, robot_type_id, power_modifier, armo
 --
 
 --
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Basic Helmet'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Basic Helmet'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Helmet'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Helmet'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Z-Buster'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Z-Buster'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Buster'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Buster'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Z-Saber'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Z-Saber'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Saber'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Saber'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Basic Armor'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Basic Armor'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Armor'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Armor'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dash Boots'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dash Boots'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO equipment_inventory (equipment_id, player_id) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Boots'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO equipment_inventory (equipment_id, player_id, in_use) VALUES ((SELECT id FROM equipment WHERE name = 'Dark Boots'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 --
 
 --
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Eagle Eye'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Eagle Eye'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Recovery Module'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Recovery Module'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Double Shot'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Double Shot'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Plasma Shot'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Plasma Shot'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Energy Buster'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Energy Buster'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Range Extender'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Range Extender'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Shock Absorber'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Shock Absorber'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Damage Reflect'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Damage Reflect'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Wind Dash'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Wind Dash'), (SELECT id FROM players WHERE name = 'Zero'), TRUE);
 
-INSERT INTO upgrades_inventory (upgrade_id, player_id) VALUES ((SELECT id FROM upgrades WHERE name = 'Double Jump'), (SELECT id FROM players WHERE name = 'Zero'));
+INSERT INTO upgrades_inventory (upgrade_id, player_id, in_use) VALUES ((SELECT id FROM upgrades WHERE name = 'Double Jump'), (SELECT id FROM players WHERE name = 'Zero'), FALSE);
 --

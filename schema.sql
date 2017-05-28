@@ -71,11 +71,13 @@ CREATE TABLE upgrades (
 CREATE TABLE equipment_inventory (
   id SERIAL4 PRIMARY KEY,
   equipment_id INTEGER REFERENCES equipment,
-  player_id INTEGER REFERENCES players
+  player_id INTEGER REFERENCES players,
+  in_use BOOLEAN NOT NULL
 );
 
 CREATE TABLE upgrades_inventory (
   id SERIAL4 PRIMARY KEY,
   upgrade_id INTEGER REFERENCES upgrades,
-  player_id INTEGER REFERENCES players
+  player_id INTEGER REFERENCES players,
+  in_use BOOLEAN NOT NULL
 );
