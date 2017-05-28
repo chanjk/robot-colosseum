@@ -8,6 +8,10 @@ const db = pgp({ database: 'robot_colosseum'});
 router.get('/players/:name', (req, res) => {
   db.task(t =>
     t.one('SELECT * FROM players WHERE LOWER(name) = LOWER($1)', req.params.name)
+    .then(player => {
+      const statNames = ['power', 'armor', 'accuracy', 'agility', 'luck'];
+      return R.assoc('stats', R.pick(statNames, player), R.omit(statNames, player));
+    })
     .then(player =>
       t.batch([
         t.one('SELECT * FROM robot_types WHERE id = $1', player.robot_type_id)
