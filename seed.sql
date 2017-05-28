@@ -12,7 +12,7 @@ INSERT INTO robot_types (name, role, image_url, power, armor, accuracy, agility,
 --
 
 --
-INSERT INTO players (name, robot_type_id, role, level, metalCount, winCount, power, armor, accuracy, agility, luck) VALUES ('Zero', (SELECT id FROM robot_types WHERE name = 'Zero'), 'Maverick Hunter', 30, 2000, 20, 15, 15, 15, 15, 15);
+INSERT INTO players (name, robot_type_id, role, level, metal_count, win_count, power, armor, accuracy, agility, luck) VALUES ('Zero', (SELECT id FROM robot_types WHERE name = 'Zero'), 'Maverick Hunter', 30, 2000, 20, 15, 15, 15, 15, 15);
 --
 
 --
