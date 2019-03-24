@@ -31,8 +31,9 @@ const style = {
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.data;
-    this.state.errors = {}
+    // this.state = props.data;
+    // this.state.errors = {}
+    this.state = { errors: {} }
     this.handleLogin = this.handleLogin.bind(this);
     this.handleSignup = this.handleSignup.bind(this);
     this.handleStatIncrement = this.handleStatChangeWith(statsHelper.increment);
@@ -44,9 +45,9 @@ export default class App extends React.Component {
 
   handleLogin(name, password) {
     if (name && password) {
-      fetch('/api/players/' + name).then(res => res.json().then(user => {
-        if (user) {
-          this.setState({ user: user });
+      fetch('/api/players/' + name).then(res => res.json().then(player => {
+        if (player) {
+          this.setState({ player: player });
         } else {
           this.setState({
             errors: {
@@ -70,8 +71,8 @@ export default class App extends React.Component {
 
   handleSignup(name, password, robotType, role) {
     if (name && password) {
-      fetch('/api/players/' + name).then(res => res.json().then(user => {
-        if (user) {
+      fetch('/api/players/' + name).then(res => res.json().then(player => {
+        if (player) {
           this.setState({
             errors: {
               signup: {
@@ -80,7 +81,7 @@ export default class App extends React.Component {
             }
           });
         } else {
-          this.setState({ user: 'Zero' });
+          this.setState({ player: 'Zero' });
         }
       }));
     } else {
@@ -115,21 +116,21 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.user) {
+    if (!this.state.player) {
       return <MuiThemeProvider>
         <LoginSignupPage onLogin={this.handleLogin} onSignup={this.handleSignup} loginErrors={this.state.errors.login} signupErrors={this.state.errors.signup} />
       </MuiThemeProvider>;
     }
 
-    const { player, stats, equipment, upgrades } = this.state;
+    const { stats, equipment, upgrades } = this.state.player;
 
     return <MuiThemeProvider>
       <GridList cellHeight={350} cols={3} padding={10} style={style.gridList}>
         <GridTile style={style.gridTile}>
-          <PlayerSummaryCard player={player} />
+          <PlayerSummaryCard player={this.state.player} />
         </GridTile>
         <GridTile style={style.gridTile}>
-          <StatBox stats={stats} available={statsHelper.calcAvailable(player.level, stats)} onIncrement={this.handleStatIncrement} onDecrement={this.handleStatDecrement} />
+          <StatBox stats={stats} available={statsHelper.calcAvailable(this.state.player.level, stats)} onIncrement={this.handleStatIncrement} onDecrement={this.handleStatDecrement} />
         </GridTile>
         <GridTile style={style.gridTile}>
           <EquipmentBox equipment={equipment} onChange={this.handleEquipmentChange} />

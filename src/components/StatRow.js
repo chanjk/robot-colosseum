@@ -7,7 +7,8 @@ import ContentRemove from 'material-ui/svg-icons/content/remove';
 const style = {
   name: {
     display: 'inline-block',
-    width: '6em'
+    width: '6em',
+    textTransform: 'capitalize'
   },
   paper: {
     display: 'inline-block',

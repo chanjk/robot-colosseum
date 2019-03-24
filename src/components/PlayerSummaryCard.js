@@ -14,14 +14,14 @@ const PlayerSummaryCard = ({ player }) => (
   <Card>
     <CardMedia>
       <div style={style.imgWrapper}>
-        <img src={player.imageUrl} style={style.img}/>
+        <img src={player.image_url} style={style.img}/>
       </div>
     </CardMedia>
     <CardTitle title={player.name} subtitle={player.role} />
     <CardText>
       <div>Level: {player.level}</div>
-      <div>Metals: {player.metalCount}</div>
-      <div>Wins: {player.winCount}</div>
+      <div>Metals: {player.metal_count}</div>
+      <div>Wins: {player.win_count}</div>
     </CardText>
   </Card>
 );

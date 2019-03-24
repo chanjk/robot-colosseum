@@ -4,9 +4,9 @@ import UpgradeRow from './UpgradeRow';
 
 const UpgradeBox = ({ upgrades, onChange }) => (
   <List>
-    {upgrades.map(upgrade => (
-      <ListItem key={upgrade.type}>
-        <UpgradeRow type={upgrade.type} name={upgrade.name} options={upgrade.all} onChange={onChange} />
+    {Object.keys(upgrades).map(type => (
+      <ListItem key={type}>
+        <UpgradeRow type={type} name={upgrades[type].find(upgrade => upgrade.in_use).name} options={upgrades[type]} onChange={onChange} />
       </ListItem>
     ))}
   </List>

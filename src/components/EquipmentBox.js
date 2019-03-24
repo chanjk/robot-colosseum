@@ -4,9 +4,9 @@ import EquipmentRow from './EquipmentRow';
 
 const EquipmentBox = ({ equipment, onChange }) => (
   <List>
-    {equipment.map(equipment => (
-      <ListItem key={equipment.type}>
-        <EquipmentRow type={equipment.type} name={equipment.name} options={equipment.all} onChange={onChange} />
+    {Object.keys(equipment).map(type => (
+      <ListItem key={type}>
+        <EquipmentRow type={type} name={equipment[type].find(equipment => equipment.in_use).name} options={equipment[type]} onChange={onChange} />
       </ListItem>
     ))}
   </List>

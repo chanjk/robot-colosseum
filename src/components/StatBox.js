@@ -12,11 +12,11 @@ const style = {
 const StatBox = ({ stats, available, onIncrement, onDecrement }) => (
   <List>
     <Subheader style={style.subheader}>Available points: {available}</Subheader>
-    {stats.map(stat => (
-      <ListItem key={stat.name}>
+    {Object.keys(stats).map(stat => (
+      <ListItem key={stat}>
         <StatRow
-          name={stat.name}
-          value={stat.value}
+          name={stat}
+          value={stats[stat]}
           onIncrement={onIncrement}
           onDecrement={onDecrement} />
       </ListItem>
